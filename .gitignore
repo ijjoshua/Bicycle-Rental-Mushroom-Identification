@@ -1,0 +1,16 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# IDE and local tooling
+*.userprefs
+*.rsuser
+
+# Logs and temporary files
+*.log
+*.tmp
