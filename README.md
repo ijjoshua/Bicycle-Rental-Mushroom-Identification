@@ -48,6 +48,38 @@ The rental fee is calculated per hour according to the time of day:
 
 The starting hour must be between `0` and `23`, and the ending hour must be between `1` and `24`.
 
+## Mushroom Identification Guide
+
+The application supports identification of six mushrooms through a guided yes/no questionnaire:
+
+| Mushroom | Identification path in the application |
+| --- | --- |
+| **Agaric Jaunissant** | Does not grow in the forest and has a convex cap |
+| **Coprin chevelu** | Does not grow in the forest and does not have a convex cap |
+| **Amanite tue-mouche** | Grows in the forest, has a convex cap, and has a ring |
+| **Pied bleu** | Grows in the forest, has a convex cap, and does not have a ring |
+| **Girolle** | Grows in the forest, does not have a convex cap, and has gills |
+| **Cepe de Bordeaux** | Grows in the forest, does not have a convex cap, and does not have gills |
+
+### Decision Logic
+
+The identification flow asks these questions in order:
+
+1. **Does it grow in the forest?**
+   - **No:** Ask whether it has a convex cap.
+	 - **Yes:** Identify it as **Agaric Jaunissant**.
+	 - **No:** Identify it as **Coprin chevelu**.
+   - **Yes:** Ask whether it has a convex cap.
+2. **Does it have a convex cap?**
+   - **Yes:** Ask whether it has a ring.
+	 - **Yes:** Identify it as **Amanite tue-mouche**.
+	 - **No:** Identify it as **Pied bleu**.
+   - **No:** Ask whether it has gills.
+	 - **Yes:** Identify it as **Girolle**.
+	 - **No:** Identify it as **Cepe de Bordeaux**.
+
+The questions are displayed as Yes/No dialog boxes, and the identified mushroom is shown in a result message after the final answer.
+
 ## Project Structure
 
 ```text
